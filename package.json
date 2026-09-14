@@ -1,0 +1,13 @@
+{
+  "name": "gluteo-flix-app",
+  "version": "1.0.0",
+  "private": true,
+  "description": "App post-compra de Glúteo Flix — secuencia activadora, entrenos, bonos y recetas",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
