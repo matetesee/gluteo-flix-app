@@ -250,7 +250,7 @@
         <div class="bf-faq-a">${esc(f.a)}</div>
       </div>`).join('')}</div>`;
 
-    html += `<div class="bf-guarantee">🛡️ <span><b>Garantía de 30 días.</b> Seguí el programa y sentí al glúteo activarse de una forma nueva — o te devolvemos tu dinero.</span></div>`;
+    html += `<div class="bf-guarantee">💬 <span><b>¿Tenés dudas?</b> Mirá la Guía de Ejercicios en la pestaña Entrenos o escribinos a soporte — estamos para ayudarte a llegar al resultado.</span></div>`;
 
     stage.innerHTML = html;
 
@@ -280,6 +280,17 @@
       return `<div class="${cls}" title="Día ${i+1}">${i+1}</div>`;
     }).join('')}</div></div>`;
 
+    html += `<div class="bf-sec">¿Tenés dudas?</div>
+    <div class="bf-bonuscard" id="btnOpenGuide" style="cursor:pointer">
+      <div class="bf-bonuscard-top">
+        <div class="emoji">📖</div>
+        <div style="flex:1">
+          <h3>Guía de todos los ejercicios</h3>
+          <p>Técnica explicada paso a paso + tutorial en video de cada movimiento.</p>
+        </div>
+      </div>
+    </div>`;
+
     html += `<div class="bf-sec">Pre-activación (siempre antes del entreno)</div>`;
     html += renderWorkoutCard({title:'Secuencia de Pre-Activación', subtitle:'Activa la conexión cerebro-glúteo antes de entrenar', exercises:BF_PREATIVACAO.map(e=>e.id)}, 'pre', -1, true);
 
@@ -291,7 +302,74 @@
 
     stage.innerHTML = html;
     $('#btnSettings').addEventListener('click', openSettings);
+    $('#btnOpenGuide').addEventListener('click', openExerciseGuide);
     attachWorkoutCardEvents();
+  }
+
+  // ---------------- GUÍA DE EJERCICIOS ----------------
+  let guideCat = 'all';
+
+  function openExerciseGuide(){
+    guideCat = 'all';
+    renderExerciseGuide();
+  }
+  function closeExerciseGuide(){
+    renderWorkouts();
+  }
+  function allGuideItems(){
+    const items = [];
+    BF_EXERCISE_GROUPS.forEach(g=>{
+      g.list.forEach(ex=> items.push(Object.assign({groupId:g.id, groupLabel:g.label}, ex)));
+    });
+    return items;
+  }
+  function renderExerciseGuide(){
+    const items = allGuideItems().filter(it=> guideCat==='all' || it.groupId===guideCat);
+    let html = `<div class="bf-pagebar">
+      <button class="bf-back" id="btnGuideBack">←</button>
+      <h1>Guía de Ejercicios</h1>
+    </div>`;
+    html += `<input type="text" class="bf-searchbox" id="inpGuideSearch" placeholder="Buscar un ejercicio...">`;
+    html += `<div class="bf-tagrow">
+      <button class="bf-tag ${guideCat==='all'?'sel':''}" data-c="all">Todos</button>
+      ${BF_EXERCISE_GROUPS.map(g=>`<button class="bf-tag ${guideCat===g.id?'sel':''}" data-c="${g.id}">${esc(g.label)}</button>`).join('')}
+    </div>`;
+    html += `<div id="guideList">${renderGuideList(items)}</div>`;
+    stage.innerHTML = html;
+    attachGuideEvents();
+  }
+
+  function renderGuideList(items){
+    if(!items.length) return `<div class="bf-empty"><b>No encontramos ese ejercicio</b><p>Probá con otra palabra o elegí una categoría.</p></div>`;
+    return items.map((ex,i)=>`
+      <div class="bf-recipe bf-guideitem" data-i="${i}" data-name="${esc(ex.name.toLowerCase())}">
+        <span class="eyebrow">${esc(ex.groupLabel)}</span>
+        <div class="bf-recipe-top">
+          <h3>${esc(ex.name)}</h3>
+          <span class="macro">${esc(ex.sets)}</span>
+        </div>
+        <span class="arrow" style="float:right;margin-top:-18px">⌄</span>
+        <div class="body">
+          <p>${esc(ex.dica)}</p>
+          <a class="bf-ytlink" href="${bfYoutubeSearch(ex.name)}" target="_blank" rel="noopener">🎥 Ver tutorial en YouTube →</a>
+        </div>
+      </div>`).join('');
+  }
+
+  function attachGuideEvents(){
+    $('#btnGuideBack').addEventListener('click', closeExerciseGuide);
+    $$('.bf-tag', stage).forEach(t=>t.addEventListener('click', ()=>{ guideCat=t.dataset.c; renderExerciseGuide(); }));
+    $$('.bf-guideitem', stage).forEach(r=>r.addEventListener('click', (e)=>{
+      if(e.target.tagName==='A') return; // dejá que el link de YouTube funcione normal
+      r.classList.toggle('open');
+    }));
+    const search = $('#inpGuideSearch', stage);
+    search.addEventListener('input', ()=>{
+      const q = search.value.trim().toLowerCase();
+      $$('.bf-guideitem', stage).forEach(card=>{
+        card.hidden = q && !card.dataset.name.includes(q);
+      });
+    });
   }
 
   function renderWorkoutCard(w, key, di, isPre){
@@ -589,35 +667,50 @@
     });
     $('#btnEditPlan').addEventListener('click', ()=>{
       closeModal();
+      // variables temporales: no tocan el estado real hasta que se toque "Guardar"
+      let tmpLocal = state.local, tmpFreq = state.freq;
       openModal(`
         <div style="display:flex;align-items:center;margin-bottom:12px"><h2 style="margin-bottom:0">Lugar & frecuencia</h2><button class="bf-close" id="modalClose">✕</button></div>
         <p style="font-size:11.5px;color:var(--soft);margin-bottom:10px">Lugar</p>
         <div class="bf-opt">
-          <button data-l="casa" class="${state.local==='casa'?'sel':''}">En casa 🏠</button>
-          <button data-l="gimnasio" class="${state.local==='gimnasio'?'sel':''}">En el gimnasio 🏋️‍♀️</button>
+          <button data-l="casa" class="${tmpLocal==='casa'?'sel':''}">En casa 🏠</button>
+          <button data-l="gimnasio" class="${tmpLocal==='gimnasio'?'sel':''}">En el gimnasio 🏋️‍♀️</button>
         </div>
         <p style="font-size:11.5px;color:var(--soft);margin-bottom:10px">Frecuencia</p>
         <div class="bf-opt">
-          <button data-f="2" class="${state.freq===2?'sel':''}">2 veces por semana</button>
-          <button data-f="3" class="${state.freq===3?'sel':''}">3 veces por semana</button>
-          <button data-f="5" class="${state.freq===5?'sel':''}">5 veces por semana</button>
+          <button data-f="2" class="${tmpFreq===2?'sel':''}">2 veces por semana</button>
+          <button data-f="3" class="${tmpFreq===3?'sel':''}">3 veces por semana</button>
+          <button data-f="5" class="${tmpFreq===5?'sel':''}">5 veces por semana</button>
         </div>
         <button class="bf-btn" id="btnSavePlan" style="margin-top:6px">Guardar</button>
       `);
       $('#modalClose').addEventListener('click', closeModal);
-      $$('[data-l]').forEach(b=>b.addEventListener('click', ()=>{ state.local=b.dataset.l; $$('[data-l]').forEach(x=>x.classList.remove('sel')); b.classList.add('sel'); }));
-      $$('[data-f]').forEach(b=>b.addEventListener('click', ()=>{ state.freq=parseInt(b.dataset.f,10); $$('[data-f]').forEach(x=>x.classList.remove('sel')); b.classList.add('sel'); }));
-      $('#btnSavePlan').addEventListener('click', ()=>{ save(); closeModal(); toast('Plan actualizado'); render(); });
+      $$('[data-l]').forEach(b=>b.addEventListener('click', ()=>{ tmpLocal=b.dataset.l; $$('[data-l]').forEach(x=>x.classList.remove('sel')); b.classList.add('sel'); }));
+      $$('[data-f]').forEach(b=>b.addEventListener('click', ()=>{ tmpFreq=parseInt(b.dataset.f,10); $$('[data-f]').forEach(x=>x.classList.remove('sel')); b.classList.add('sel'); }));
+      $('#btnSavePlan').addEventListener('click', ()=>{
+        state.local = tmpLocal; state.freq = tmpFreq;
+        save(); closeModal(); toast('Plan actualizado'); render();
+      });
     });
     $('#btnReset').addEventListener('click', ()=>{
-      if(confirm('Esto va a borrar todo tu progreso guardado en este dispositivo. ¿Continuar?')){
+      closeModal();
+      openModal(`
+        <h2>¿Reiniciar tu progreso?</h2>
+        <p style="font-size:12.5px;color:var(--soft);margin-bottom:18px;line-height:1.55">Esto va a borrar todo lo que registraste en este dispositivo: días completados, peso, medidas y fotos. No se puede deshacer.</p>
+        <div style="display:flex;gap:10px">
+          <button class="bf-btn ghost sm" id="btnCancelReset" style="flex:1">Cancelar</button>
+          <button class="bf-btn sm" id="btnConfirmReset" style="flex:1;background:#c0392b">Sí, reiniciar</button>
+        </div>
+      `);
+      $('#btnCancelReset').addEventListener('click', closeModal);
+      $('#btnConfirmReset').addEventListener('click', ()=>{
         localStorage.removeItem(STORE_KEY);
         state = defaultState();
         closeModal();
         onbStep = 0; onbAns.name=''; onbAns.local=''; onbAns.freq=null;
         applyTheme();
         renderOnboarding();
-      }
+      });
     });
   }
 

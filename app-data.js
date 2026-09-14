@@ -179,6 +179,24 @@ const BF_TESTIMONIALS = [
   { name:'Jéssica', text:'Pasaba el día sentada con dolor lumbar. Mejoró muchísimo y encima gané volumen en el glúteo.', tag:'Sin dolor lumbar' },
 ];
 
+// ---- Guía de ejercicios: todo el banco agrupado y con link de tutorial ----
+// (no usamos imágenes propias — el link busca el tutorial directo en YouTube)
+function bfYoutubeSearch(name){
+  return 'https://www.youtube.com/results?search_query=' + encodeURIComponent(name + ' ejercicio técnica correcta');
+}
+const BF_EXERCISE_GROUPS = [
+  { id:'pre', label:'Pre-activación', list: BF_PREATIVACAO },
+  { id:'frontal', label:'Glúteo Lateral (medio/mínimo)', list: BF_EX.frontal },
+  { id:'sagital', label:'Glúteo Empinado (máximo)', list: BF_EX.sagital },
+  { id:'unilateral', label:'Unilaterales & Simetría', list: BF_EX.unilateral },
+  { id:'avancado', label:'Técnicas Avanzadas', list: BF_EX.avancado },
+  { id:'quadriceps', label:'Cuádriceps', list: BF_EX.quadriceps },
+  { id:'posterior', label:'Anti-Celulitis', list: BF_EX.posterior },
+  { id:'superiores1', label:'Superiores · Espalda & Hombro', list: BF_EX.superiores1 },
+  { id:'superiores2', label:'Superiores · Brazos & Core', list: BF_EX.superiores2 },
+  { id:'express', label:'Circuito Express', list: BF_EX.express },
+];
+
 // ---- Preguntas frecuentes ----
 const BF_FAQ = [
   { q:'Tengo más de 40 años, ¿todavía tengo tiempo?', a:'Sí — las alumnas de 40 años para arriba suelen tener los resultados más rápidos, porque el glúteo generalmente está más tiempo inhibido y responde fuerte apenas se reactiva correctamente.' },
@@ -186,4 +204,5 @@ const BF_FAQ = [
   { q:'Tengo dolor de rodilla, ¿puedo entrenar?', a:'En la mayoría de los casos el dolor de rodilla en la sentadilla pasa porque el glúteo no se activa y el cuádriceps compensa demasiado. Activando el glúteo correctamente, esa sobrecarga tiende a bajar.' },
   { q:'Mi glúteo está muy caído y flácido, ¿se puede resolver sin cirugía?', a:'Sí. Glúteo caído casi siempre es glúteo atrofiado — músculo que no sostiene la piel. Activando y desarrollando el músculo, vuelve a "pegarse" y a elevarse.' },
   { q:'¿Necesito gimnasio o puedo entrenar en casa?', a:'Los dos. Cada ejercicio tiene una variante en casa (con mini band, por ejemplo) y otra en el gimnasio (con máquinas), sin perder el efecto.' },
+  { q:'No entiendo bien cómo se hace un ejercicio, ¿qué hago?', a:'Entrá a la pestaña Entrenos y tocá "Guía de todos los ejercicios": ahí está la técnica completa de cada movimiento explicada paso a paso, con un link directo a un tutorial en video.' },
 ];
