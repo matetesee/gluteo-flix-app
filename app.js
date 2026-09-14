@@ -351,7 +351,7 @@
         <span class="arrow" style="float:right;margin-top:-18px">⌄</span>
         <div class="body">
           <p>${esc(ex.dica)}</p>
-          <a class="bf-ytlink" href="${bfYoutubeSearch(ex.name)}" target="_blank" rel="noopener">🎥 Ver tutorial en YouTube →</a>
+          <a class="bf-ytlink" href="${bfYoutubeUrl(ex)}" target="_blank" rel="noopener">🎥 Ver tutorial en YouTube →</a>
         </div>
       </div>`).join('');
   }

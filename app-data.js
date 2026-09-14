@@ -8,65 +8,65 @@ const BF_PROGRAM_DAYS = 21;
 
 // ---- Pre-activación (siempre antes de cualquier entreno de glúteo) ----
 const BF_PREATIVACAO = [
-  { id:'pa1', name:'Almeja (Clamshell)', sets:'3 x 15-20', dica:'Acostada de lado, tronco levemente flexionado hacia adelante, cadera y rodillas flexionadas, pies juntos. Abre la rodilla de arriba como una "almeja", sostén 1-2s arriba y baja controlada.' },
-  { id:'pa2', name:'Extensión de Cadera en la Pared', sets:'3 x 15-20 cada lado', dica:'Apoya las manos en la pared, un pie adelante y otro atrás. Extiende la cadera hacia atrás, sostén 2s en la contracción máxima y regresa. Después cambia de lado.' },
-  { id:'pa3', name:'Paso Lateral con Mini Band', sets:'3 x 15 cada lado', dica:'Con la banda arriba de las rodillas (o en los tobillos), agáchate levemente, tronco algo inclinado hacia adelante, y da pasos hacia el costado sin perder la tensión de la banda.' },
+  { id:'pa1', name:'Almeja (Clamshell)', sets:'3 x 15-20', dica:'Acostada de lado, tronco levemente flexionado hacia adelante, cadera y rodillas flexionadas, pies juntos. Abre la rodilla de arriba como una "almeja", sostén 1-2s arriba y baja controlada.', yt:'ZifBMZrzpPA' },
+  { id:'pa2', name:'Extensión de Cadera en la Pared', sets:'3 x 15-20 cada lado', dica:'Apoya las manos en la pared, un pie adelante y otro atrás. Extiende la cadera hacia atrás, sostén 2s en la contracción máxima y regresa. Después cambia de lado.', yt:'EIst_zqP2dg' },
+  { id:'pa3', name:'Paso Lateral con Mini Band', sets:'3 x 15 cada lado', dica:'Con la banda arriba de las rodillas (o en los tobillos), agáchate levemente, tronco algo inclinado hacia adelante, y da pasos hacia el costado sin perder la tensión de la banda.', yt:'WISZki61dRY' },
 ];
 
 // ---- Banco de ejercicios por categoría ----
 const BF_EX = {
   frontal: [ // plano frontal — glúteo medio y mínimo (hip dips / lateral)
-    { id:'f1', name:'Abducción de Cadera (máquina o mini band)', sets:'4 x 15-20', dica:'En el gym: máquina abductora, tronco levemente inclinado hacia adelante para enfocar la parte de arriba del glúteo. En casa: acostada de lado con mini band arriba de las rodillas.' },
-    { id:'f2', name:'Abducción de Cadera Acostada', sets:'3 x 15-20 cada lado', dica:'Acostada de lado, pierna de abajo flexionada de apoyo, pierna de arriba estirada. Sube la pierna sin girar la cadera hacia atrás.' },
-    { id:'f3', name:'Hip Thrust con Mini Band en la Rodilla', sets:'3 x 15', dica:'En el hip thrust tradicional, agrega la banda arriba de las rodillas y fuerza abrir la rodilla durante toda la subida — activa mucho más el lateral del glúteo.' },
-    { id:'f4', name:'Monster Walk con Mini Band', sets:'3 x 12 pasos cada dirección', dica:'Banda en los tobillos, semi-agachada, da pasos amplios hacia adelante y hacia atrás manteniendo la tensión constante.' },
+    { id:'f1', name:'Abducción de Cadera (máquina o mini band)', sets:'4 x 15-20', dica:'En el gym: máquina abductora, tronco levemente inclinado hacia adelante para enfocar la parte de arriba del glúteo. En casa: acostada de lado con mini band arriba de las rodillas.', yt:'2vCRMi-lgJ4' },
+    { id:'f2', name:'Abducción de Cadera Acostada', sets:'3 x 15-20 cada lado', dica:'Acostada de lado, pierna de abajo flexionada de apoyo, pierna de arriba estirada. Sube la pierna sin girar la cadera hacia atrás.', yt:'dILxTvY88uI' },
+    { id:'f3', name:'Hip Thrust con Mini Band en la Rodilla', sets:'3 x 15', dica:'En el hip thrust tradicional, agrega la banda arriba de las rodillas y fuerza abrir la rodilla durante toda la subida — activa mucho más el lateral del glúteo.', yt:'3SHkXmrQtxQ' },
+    { id:'f4', name:'Monster Walk con Mini Band', sets:'3 x 12 pasos cada dirección', dica:'Banda en los tobillos, semi-agachada, da pasos amplios hacia adelante y hacia atrás manteniendo la tensión constante.', yt:'WISZki61dRY' },
   ],
   sagital: [ // plano sagital — glúteo máximo (empinar)
-    { id:'s1', name:'Elevación de Cadera (Hip Thrust)', sets:'4 x 12-15', dica:'Espalda apoyada en el banco, sube la cadera hasta la extensión total, aprieta el glúteo con fuerza arriba por 1-2s y baja controlada.' },
-    { id:'s2', name:'Glúteo en Polea (rodilla flexionada)', sets:'3 x 15 cada lado', dica:'De pie, tobillo sujeto a la polea, rodilla flexionada, empuja la pierna hacia atrás y arriba enfocando el glúteo, no la zona lumbar.' },
-    { id:'s3', name:'Patada de Glúteo en el Piso (Donkey Kick)', sets:'3 x 15-20 cada lado', dica:'Apoyada en cuatro puntos, rodilla flexionada a 90°, empuja el pie hacia el techo sin arquear la zona lumbar.' },
-    { id:'s4', name:'Peso Muerto Rumano (Stiff)', sets:'3 x 12', dica:'Piernas semi-extendidas, baja el peso deslizando cerca de las piernas, sintiendo estirar el isquiotibial y el glúteo, y sube contrayendo el glúteo.' },
+    { id:'s1', name:'Elevación de Cadera (Hip Thrust)', sets:'4 x 12-15', dica:'Espalda apoyada en el banco, sube la cadera hasta la extensión total, aprieta el glúteo con fuerza arriba por 1-2s y baja controlada.', yt:'3SHkXmrQtxQ' },
+    { id:'s2', name:'Glúteo en Polea (rodilla flexionada)', sets:'3 x 15 cada lado', dica:'De pie, tobillo sujeto a la polea, rodilla flexionada, empuja la pierna hacia atrás y arriba enfocando el glúteo, no la zona lumbar.', yt:'3KdH7vkEW6s' },
+    { id:'s3', name:'Patada de Glúteo en el Piso (Donkey Kick)', sets:'3 x 15-20 cada lado', dica:'Apoyada en cuatro puntos, rodilla flexionada a 90°, empuja el pie hacia el techo sin arquear la zona lumbar.', yt:'DCCxkjhDzAY' },
+    { id:'s4', name:'Peso Muerto Rumano (Stiff)', sets:'3 x 12', dica:'Piernas semi-extendidas, baja el peso deslizando cerca de las piernas, sintiendo estirar el isquiotibial y el glúteo, y sube contrayendo el glúteo.', yt:'99aPIw8XxRg' },
   ],
   unilateral: [ // isométrico / unilateral — simetría
-    { id:'u1', name:'Glúteo de Pie en Polea (unilateral)', sets:'3 x 15 cada lado', dica:'Empieza siempre por el lado más débil. Sostén 2s en la contracción máxima antes de volver.' },
-    { id:'u2', name:'Glúteo con Tobillera (unilateral)', sets:'3 x 15 cada lado', dica:'Boca abajo, rodilla flexionada a 90°, sube la pierna enfocando el glúteo. Empieza por el lado más débil.' },
-    { id:'u3', name:'Peso Muerto Unilateral', sets:'3 x 10 cada lado', dica:'Apoyo en una pierna, baja el tronco estirando el isquiotibial mientras la pierna libre sube atrás. Ideal para corregir asimetrías.' },
-    { id:'u4', name:'Zancada Búlgara', sets:'3 x 12 cada lado', dica:'Pie de atrás apoyado en un banco, baja la rodilla de adelante hasta 90°, con el tronco levemente inclinado hacia adelante para enfocar el glúteo.' },
+    { id:'u1', name:'Glúteo de Pie en Polea (unilateral)', sets:'3 x 15 cada lado', dica:'Empieza siempre por el lado más débil. Sostén 2s en la contracción máxima antes de volver.', yt:'3KdH7vkEW6s' },
+    { id:'u2', name:'Glúteo con Tobillera (unilateral)', sets:'3 x 15 cada lado', dica:'Boca abajo, rodilla flexionada a 90°, sube la pierna enfocando el glúteo. Empieza por el lado más débil.', yt:'jeVpk93M-es' },
+    { id:'u3', name:'Peso Muerto Unilateral', sets:'3 x 10 cada lado', dica:'Apoyo en una pierna, baja el tronco estirando el isquiotibial mientras la pierna libre sube atrás. Ideal para corregir asimetrías.', yt:'DEREaLy-vdc' },
+    { id:'u4', name:'Zancada Búlgara', sets:'3 x 12 cada lado', dica:'Pie de atrás apoyado en un banco, baja la rodilla de adelante hasta 90°, con el tronco levemente inclinado hacia adelante para enfocar el glúteo.', yt:'q398FG9-oXY' },
   ],
   avancado: [ // tiempo bajo tensión — técnicas avanzadas
-    { id:'a1', name:'Pico de Contracción (en el Hip Thrust)', sets:'3 x 12', dica:'Arriba del hip thrust, sostén la contracción máxima por 3-5 segundos antes de bajar. Enfoca las fibras más profundas del glúteo.' },
-    { id:'a2', name:'Repeticiones Parciales (en Glúteo Polea)', sets:'3 x 15', dica:'Hacé el movimiento solo en los últimos grados de amplitud (la parte de arriba), donde el glúteo trabaja más y la cadera compensa menos.' },
-    { id:'a3', name:'Super Slow (Sentadilla Sumo)', sets:'3 x 10', dica:'4 segundos en la bajada y 4 segundos en la subida. Aumenta mucho el tiempo bajo tensión y recluta más fibras del glúteo.' },
+    { id:'a1', name:'Pico de Contracción (en el Hip Thrust)', sets:'3 x 12', dica:'Arriba del hip thrust, sostén la contracción máxima por 3-5 segundos antes de bajar. Enfoca las fibras más profundas del glúteo.', yt:'3SHkXmrQtxQ' },
+    { id:'a2', name:'Repeticiones Parciales (en Glúteo Polea)', sets:'3 x 15', dica:'Hacé el movimiento solo en los últimos grados de amplitud (la parte de arriba), donde el glúteo trabaja más y la cadera compensa menos.', yt:'3KdH7vkEW6s' },
+    { id:'a3', name:'Super Slow (Sentadilla Sumo)', sets:'3 x 10', dica:'4 segundos en la bajada y 4 segundos en la subida. Aumenta mucho el tiempo bajo tensión y recluta más fibras del glúteo.', yt:'UQIQJ2y3kcY' },
   ],
   quadriceps: [ // bono — Protocolo Cuádriceps Proporcional
-    { id:'q1', name:'Sentadilla Libre (o Goblet Squat)', sets:'4 x 12', dica:'Técnica de sobrecarga progresiva: aumentá la carga o las repeticiones semana a semana, siempre con buena amplitud.' },
-    { id:'q2', name:'Prensa (o Zancada Frontal en Casa)', sets:'3 x 15', dica:'Pies más abajo en la plataforma para enfocar cuádriceps sin sobrecargar demasiado el glúteo.' },
-    { id:'q3', name:'Extensión de Cuádriceps (o Zancada Búlgara Frontal)', sets:'3 x 15', dica:'El ejercicio que el 90% de las mujeres hace mal: no traves la rodilla arriba, controlá la bajada.' },
-    { id:'q4', name:'Elevación de Talones de Pie', sets:'4 x 20', dica:'Amplitud completa, subiendo bien en la punta del pie y bajando hasta estirar totalmente.' },
+    { id:'q1', name:'Sentadilla Libre (o Goblet Squat)', sets:'4 x 12', dica:'Técnica de sobrecarga progresiva: aumentá la carga o las repeticiones semana a semana, siempre con buena amplitud.', yt:'FoQsAJ1n0Mk' },
+    { id:'q2', name:'Prensa (o Zancada Frontal en Casa)', sets:'3 x 15', dica:'Pies más abajo en la plataforma para enfocar cuádriceps sin sobrecargar demasiado el glúteo.', yt:'xvCynwyNoP4' },
+    { id:'q3', name:'Extensión de Cuádriceps (o Zancada Búlgara Frontal)', sets:'3 x 15', dica:'El ejercicio que el 90% de las mujeres hace mal: no traves la rodilla arriba, controlá la bajada.', yt:'DI34ngDC8FU' },
+    { id:'q4', name:'Elevación de Talones de Pie', sets:'4 x 20', dica:'Amplitud completa, subiendo bien en la punta del pie y bajando hasta estirar totalmente.', yt:'xDrezw4UkoE' },
   ],
   posterior: [ // bono — Protocolo Anti-Celulitis
-    { id:'p1', name:'Curl Femoral (o Peso Muerto Unilateral en Casa)', sets:'4 x 15', dica:'Enfoque en las fibras más profundas del isquiotibial — bajá bien despacio (tiempo bajo tensión) para estimular la zona.' },
-    { id:'p2', name:'Elevación de Cadera con Piernas Extendidas', sets:'3 x 15', dica:'Pies más alejados del cuerpo, lo que aumenta la exigencia del isquiotibial junto al glúteo.' },
-    { id:'p3', name:'Puente Unilateral Isométrico', sets:'3 x 30-40s cada lado', dica:'Una pierna extendida en el aire, sostené la cadera elevada. Trabaja resistencia muscular y firmeza de la zona.' },
-    { id:'p4', name:'Flexión de Rodilla de Pie (con tobillera o banda)', sets:'3 x 15 cada lado', dica:'Truco del tiempo bajo tensión: sostené 2s en la contracción máxima antes de bajar — estimula colágeno en la zona.' },
+    { id:'p1', name:'Curl Femoral (o Peso Muerto Unilateral en Casa)', sets:'4 x 15', dica:'Enfoque en las fibras más profundas del isquiotibial — bajá bien despacio (tiempo bajo tensión) para estimular la zona.', yt:'9xbBr5Ytl8c' },
+    { id:'p2', name:'Elevación de Cadera con Piernas Extendidas', sets:'3 x 15', dica:'Pies más alejados del cuerpo, lo que aumenta la exigencia del isquiotibial junto al glúteo.', yt:'pBM5Mwk6KL0' },
+    { id:'p3', name:'Puente Unilateral Isométrico', sets:'3 x 30-40s cada lado', dica:'Una pierna extendida en el aire, sostené la cadera elevada. Trabaja resistencia muscular y firmeza de la zona.', yt:'VUl8R0kn6v4' },
+    { id:'p4', name:'Flexión de Rodilla de Pie (con tobillera o banda)', sets:'3 x 15 cada lado', dica:'Truco del tiempo bajo tensión: sostené 2s en la contracción máxima antes de bajar — estimula colágeno en la zona.', yt:'tjliQnQ44LY' },
   ],
   superiores1: [ // bono — entreno de superiores 1 (espalda/hombro)
-    { id:'sup1', name:'Remo (mancuernas o banda elástica)', sets:'3 x 15', dica:'Codos cerca del cuerpo, apretá las escápulas al final del movimiento.' },
-    { id:'sup2', name:'Jalón (en máquina o banda anclada arriba)', sets:'3 x 15', dica:'Tirá hasta la altura del pecho, sin tirar el cuerpo hacia atrás.' },
-    { id:'sup3', name:'Elevación Lateral', sets:'3 x 15', dica:'Subí los brazos hasta la altura de los hombros, sin encoger el cuello.' },
-    { id:'sup4', name:'Face Pull (banda o polea)', sets:'3 x 15', dica:'Tirá hacia la cara abriendo los codos — crea el efecto de cintura fina entrenando hombro y espalda en la proporción correcta.' },
+    { id:'sup1', name:'Remo (mancuernas o banda elástica)', sets:'3 x 15', dica:'Codos cerca del cuerpo, apretá las escápulas al final del movimiento.', yt:'Pkr1WW3p05A' },
+    { id:'sup2', name:'Jalón (en máquina o banda anclada arriba)', sets:'3 x 15', dica:'Tirá hasta la altura del pecho, sin tirar el cuerpo hacia atrás.', yt:'72q0tKij5uU' },
+    { id:'sup3', name:'Elevación Lateral', sets:'3 x 15', dica:'Subí los brazos hasta la altura de los hombros, sin encoger el cuello.', yt:'hgLpdwMtEEs' },
+    { id:'sup4', name:'Face Pull (banda o polea)', sets:'3 x 15', dica:'Tirá hacia la cara abriendo los codos — crea el efecto de cintura fina entrenando hombro y espalda en la proporción correcta.', yt:'X-xCQ1gh-kA' },
   ],
   superiores2: [ // bono — entreno de superiores 2 (brazos)
-    { id:'sup5', name:'Curl de Bíceps (mancuernas o banda)', sets:'3 x 15', dica:'Sin balancear el cuerpo, codos fijos al costado del tronco.' },
-    { id:'sup6', name:'Tríceps en Polea (o Fondos en Banco)', sets:'3 x 15', dica:'Codos fijos, extendé totalmente el brazo sin trabar la articulación.' },
-    { id:'sup7', name:'Elevación Frontal', sets:'3 x 12', dica:'Subí los brazos al frente hasta la altura de los hombros, controlando la bajada.' },
-    { id:'sup8', name:'Plancha Abdominal', sets:'3 x 30-45s', dica:'Cuerpo alineado de la cabeza a los talones, abdomen contraído — sin dejar caer la cadera.' },
+    { id:'sup5', name:'Curl de Bíceps (mancuernas o banda)', sets:'3 x 15', dica:'Sin balancear el cuerpo, codos fijos al costado del tronco.', yt:'PY9QylAMtyE' },
+    { id:'sup6', name:'Tríceps en Polea (o Fondos en Banco)', sets:'3 x 15', dica:'Codos fijos, extendé totalmente el brazo sin trabar la articulación.', yt:'uZg6VtRhwQY' },
+    { id:'sup7', name:'Elevación Frontal', sets:'3 x 12', dica:'Subí los brazos al frente hasta la altura de los hombros, controlando la bajada.', yt:'O0n4ITO_288' },
+    { id:'sup8', name:'Plancha Abdominal', sets:'3 x 30-45s', dica:'Cuerpo alineado de la cabeza a los talones, abdomen contraído — sin dejar caer la cadera.', yt:'d0atctiI7Vw' },
   ],
   express: [ // bono — entreno express 20 minutos
-    { id:'ex1', name:'Hip Thrust', sets:'4 x 15', dica:'Ritmo constante, sin descanso largo entre series — es un circuito.' },
-    { id:'ex2', name:'Sentadilla Sumo', sets:'4 x 15', dica:'Pies separados, puntas levemente hacia afuera, bajá contrayendo el glúteo en la subida.' },
-    { id:'ex3', name:'Glúteo Polea (o Donkey Kick en casa)', sets:'4 x 15 cada lado', dica:'Movimiento rápido y controlado, sin perder la forma.' },
-    { id:'ex4', name:'Plancha Abdominal', sets:'4 x 30s', dica:'Cerrá el circuito con el core, descansá 60s y repetí la secuencia completa 3 veces.' },
+    { id:'ex1', name:'Hip Thrust', sets:'4 x 15', dica:'Ritmo constante, sin descanso largo entre series — es un circuito.', yt:'3SHkXmrQtxQ' },
+    { id:'ex2', name:'Sentadilla Sumo', sets:'4 x 15', dica:'Pies separados, puntas levemente hacia afuera, bajá contrayendo el glúteo en la subida.', yt:'UQIQJ2y3kcY' },
+    { id:'ex3', name:'Glúteo Polea (o Donkey Kick en casa)', sets:'4 x 15 cada lado', dica:'Movimiento rápido y controlado, sin perder la forma.', yt:'DCCxkjhDzAY' },
+    { id:'ex4', name:'Plancha Abdominal', sets:'4 x 30s', dica:'Cerrá el circuito con el core, descansá 60s y repetí la secuencia completa 3 veces.', yt:'d0atctiI7Vw' },
   ],
 };
 
@@ -181,8 +181,11 @@ const BF_TESTIMONIALS = [
 
 // ---- Guía de ejercicios: todo el banco agrupado y con link de tutorial ----
 // (no usamos imágenes propias — el link busca el tutorial directo en YouTube)
-function bfYoutubeSearch(name){
-  return 'https://www.youtube.com/results?search_query=' + encodeURIComponent(name + ' ejercicio técnica correcta');
+function bfYoutubeUrl(ex){
+  // cada ejercicio tiene su propio video elegido a mano (yt: id de YouTube).
+  // si por algún motivo faltara, cae de respaldo a una búsqueda.
+  if(ex && ex.yt) return 'https://www.youtube.com/watch?v=' + ex.yt;
+  return 'https://www.youtube.com/results?search_query=' + encodeURIComponent((ex && ex.name || '') + ' ejercicio técnica correcta');
 }
 const BF_EXERCISE_GROUPS = [
   { id:'pre', label:'Pre-activación', list: BF_PREATIVACAO },
