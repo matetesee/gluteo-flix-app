@@ -213,6 +213,18 @@
       </div>`;
     }
 
+    // aviso de la guía de ejercicios con video (para que se note desde el inicio)
+    html += `<div class="bf-sec">🎥 ¿No sabés cómo se hace un ejercicio?</div>
+    <div class="bf-bonuscard" id="btnHomeGuide" style="cursor:pointer">
+      <div class="bf-bonuscard-top">
+        <div class="emoji">📖</div>
+        <div style="flex:1">
+          <h3>Guía de todos los ejercicios</h3>
+          <p>Tocá cualquier ejercicio de tu entreno y mirá el video con la técnica paso a paso.</p>
+        </div>
+      </div>
+    </div>`;
+
     // regalo sorpresa (primera vez)
     if(!state.surpriseSeen){
       html += `<div class="bf-sec">🎁 Para vos</div>
@@ -257,6 +269,7 @@
     $('#btnSettings').addEventListener('click', openSettings);
     const goW = $('#btnGoWorkout');
     if(goW) goW.addEventListener('click', ()=>{ setTab('workouts'); openWorkout(goW.dataset.key); });
+    $('#btnHomeGuide').addEventListener('click', ()=>{ setTab('workouts'); openExerciseGuide(); });
     const surp = $('#btnOpenSurprise');
     if(surp) surp.addEventListener('click', openSurpriseModal);
     $$('.bf-faq-q', stage).forEach(btn=>{
@@ -349,6 +362,7 @@
           <span class="macro">${esc(ex.sets)}</span>
         </div>
         <span class="arrow" style="float:right;margin-top:-18px">⌄</span>
+        <p class="bf-tap-hint">👆 Tocá para ver la técnica paso a paso + video 🎥</p>
         <div class="body">
           <p>${esc(ex.dica)}</p>
           <a class="bf-ytlink" href="${bfYoutubeUrl(ex)}" target="_blank" rel="noopener">🎥 Ver tutorial en YouTube →</a>
@@ -398,6 +412,7 @@
               <div style="flex:1">
                 <b>${esc(ex.name)}</b><span class="sets">${esc(ex.sets)}</span>
                 <p>${esc(ex.dica)}</p>
+                <a class="bf-ytlink" href="${bfYoutubeUrl(ex)}" target="_blank" rel="noopener">🎥 Ver video de la técnica →</a>
               </div>
             </div>
           </div>`;
@@ -418,7 +433,8 @@
       });
     });
     $$('.bf-exitem', stage).forEach(item=>{
-      item.addEventListener('click', ()=>{
+      item.addEventListener('click', (e)=>{
+        if(e.target.closest('a')) return; // dejá que el link de YouTube funcione normal, sin marcar/desmarcar
         const card = item.closest('.bf-wcard');
         const key = card.dataset.key;
         if(!BF_WORKOUTS[key]) return; // la pre-activación no se trackea
